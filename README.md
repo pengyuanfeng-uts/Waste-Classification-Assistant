@@ -16,3 +16,5 @@ The only effect that clearly stands out above the noise is the use of transfer l
 Environment
 
 Python 3.10, TensorFlow 2.15.1 with Keras 2.15; additional dependencies include NumPy, scikit-learn, Matplotlib, Pillow, and Flask.
+
+Please note that some files like models and data are removed due to the large size.
