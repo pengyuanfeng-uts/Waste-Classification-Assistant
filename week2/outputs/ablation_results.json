@@ -1,0 +1,43 @@
+{
+  "learning_rate": 1e-05,
+  "epochs": 5,
+  "note": "Short runs, for ranking configurations only - not comparable to the 10-epoch §4/§5 runs.",
+  "runs": [
+    {
+      "unfreeze": "top 10",
+      "unfreeze_layers": 10,
+      "learning_rate": 1e-05,
+      "epochs": 5,
+      "trainable_params": 733126,
+      "trainable_share": 0.3236,
+      "val_accuracy": 0.8443,
+      "val_macro_f1": 0.8226,
+      "test_accuracy": 0.8047,
+      "test_macro_f1": 0.7595
+    },
+    {
+      "unfreeze": "top 20",
+      "unfreeze_layers": 20,
+      "learning_rate": 1e-05,
+      "epochs": 5,
+      "trainable_params": 1202566,
+      "trainable_share": 0.5308,
+      "val_accuracy": 0.8443,
+      "val_macro_f1": 0.8168,
+      "test_accuracy": 0.81,
+      "test_macro_f1": 0.7638
+    },
+    {
+      "unfreeze": "all",
+      "unfreeze_layers": null,
+      "learning_rate": 1e-05,
+      "epochs": 5,
+      "trainable_params": 2197446,
+      "trainable_share": 0.9699,
+      "val_accuracy": 0.847,
+      "val_macro_f1": 0.8207,
+      "test_accuracy": 0.8127,
+      "test_macro_f1": 0.7711
+    }
+  ]
+}
