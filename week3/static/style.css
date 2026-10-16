@@ -1,0 +1,185 @@
+
+
+:root {
+  --ink: #1d2430;
+  --muted: #6b7686;
+  --line: #dfe4ec;
+  --accent: #2f6fb0;
+  --accent-soft: #e8f1fa;
+  --warn: #a4413a;
+  --warn-soft: #fdeceb;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+
+
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  padding: 40px 20px 64px;
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--ink);
+  background: #f6f8fb;
+}
+
+main { max-width: 820px; margin: 0 auto; }
+
+header h1 { margin: 0 0 6px; font-size: 1.7rem; letter-spacing: -0.01em; }
+.sub { margin: 0 0 28px; color: var(--muted); }
+
+/* ---------- alerts ---------- */
+.alert {
+  margin-bottom: 22px;
+  padding: 14px 16px;
+  border: 1px solid #f0c9c5;
+  border-left: 4px solid var(--warn);
+  border-radius: var(--radius);
+  background: var(--warn-soft);
+  color: #6d2a25;
+  font-size: 0.94rem;
+}
+.alert pre {
+  margin: 8px 0 0;
+  white-space: pre-wrap;
+  font-size: 0.82rem;
+  color: #7d3a34;
+}
+
+/* ---------- upload form ---------- */
+#image { display: none; }
+
+.drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 38px 20px;
+  border: 2px dashed var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color .15s, background .15s;
+}
+.drop:hover, .drop:focus, .drop.over {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  outline: none;
+}
+.drop-icon { font-size: 1.6rem; color: var(--accent); }
+.drop-title { font-weight: 600; }
+.drop-hint { color: var(--muted); font-size: 0.85rem; }
+
+.drop img {
+  margin-top: 16px;
+  max-width: 100%;
+  max-height: 260px;
+  border-radius: 8px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  padding: 14px 18px;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+button:hover:not(:disabled) { background: #275c93; }
+button:disabled { background: #b8c2d0; cursor: not-allowed; }
+
+/* ---------- result ---------- */
+.result {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  margin-top: 30px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+}
+.thumb img {
+  width: 200px;
+  border-radius: 8px;
+  display: block;
+}
+.verdict-box { flex: 1; min-width: 0; }
+
+.eyebrow {
+  margin: 0 0 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.verdict {
+  margin: 0 0 20px;
+  font-size: 1.55rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.conf {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: none;
+}
+
+.bars { list-style: none; margin: 0; padding: 0; }
+.bars li {
+  display: grid;
+  grid-template-columns: 92px 1fr 56px;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 0.88rem;
+}
+.bars .name { text-transform: capitalize; color: var(--ink); }
+.bars .bar {
+  height: 9px;
+  border-radius: 5px;
+  background: var(--accent-soft);
+  overflow: hidden;
+}
+.bars .bar i { display: block; height: 100%; background: var(--accent); }
+.bars .pct { text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* ---------- caveat + footer ---------- */
+.caveat {
+  margin-top: 34px;
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+}
+.caveat h2 { margin: 0 0 10px; font-size: 1rem; }
+.caveat p { margin: 0 0 12px; font-size: 0.9rem; color: #414b5c; }
+.caveat p:last-child { margin-bottom: 0; }
+
+footer {
+  margin-top: 26px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+code {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: #eef1f6;
+  font-size: 0.86em;
+}
+a { color: var(--accent); }
+
+@media (max-width: 620px) {
+  .result { flex-direction: column; }
+  .thumb img { width: 100%; }
+}
