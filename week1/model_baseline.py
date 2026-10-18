@@ -17,24 +17,6 @@ Architecture (matches the plan sent to the tutor):
       -> Dropout(0.2)
       -> Dense(6, softmax)
 
-References (APA 7)
-------------------
-Chollet, F. (2023, June 25). Transfer learning & fine-tuning [Keras developer
-    guide]. Keras. https://keras.io/guides/transfer_learning/
-    -> source of the freeze-base / train-head / fine-tune recipe used here.
-Deng, J., Dong, W., Socher, R., Li, L.-J., Li, K., & Fei-Fei, L. (2009).
-    ImageNet: A large-scale hierarchical image database. In 2009 IEEE CVPR
-    (pp. 248-255). IEEE.
-    -> origin of the `weights="imagenet"` pretrained features.
-Howard, A. G., Zhu, M., Chen, B., Kalenichenko, D., Wang, W., Weyand, T.,
-    Andreetto, M., & Adam, H. (2017). MobileNets: Efficient convolutional
-    neural networks for mobile vision applications. arXiv.
-    -> depthwise separable convolutions, the efficiency property relied on.
-Sandler, M., Howard, A., Zhu, M., Zhmoginov, A., & Chen, L.-C. (2018).
-    MobileNetV2: Inverted residuals and linear bottlenecks. In Proceedings of
-    the IEEE Conference on Computer Vision and Pattern Recognition
-    (pp. 4510-4520). IEEE.
-    -> the backbone architecture and why it suits CPU-only / edge deployment.
 """
 
 from __future__ import annotations
