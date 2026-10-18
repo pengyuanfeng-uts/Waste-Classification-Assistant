@@ -34,10 +34,7 @@ from utils import silence_tensorflow  # noqa: E402
 silence_tensorflow()
 
 # --------------------------------------------------------------------------- model choice
-# Checked in order. The fine-tuned checkpoints are preferred only because they are
-# the most recent training - on the 379-image test set the three models are
-# statistically indistinguishable (see week2 §9), so this is a deployment
-# convenience, not a claim that one of them is better.
+
 CANDIDATE_CHECKPOINTS = [
     WEEK3_DIR.parent / "week2" / "outputs" / "finetuned_model.keras",
     WEEK3_DIR.parent / "week2" / "outputs" / "finetuned_classweight_model.keras",
@@ -101,11 +98,6 @@ def load_model(checkpoint: str | Path | None = None):
 def preprocess(image: Image.Image) -> np.ndarray:
     """
     Turn a PIL image into the array the model expects.
-
-    The saved model already contains the MobileNetV2 rescaling *and* the augmentation
-    layers (which are inert outside training), so inference feeds raw 0-255 pixels.
-    Normalising here as well would apply the transformation twice - the classic way
-    to silently degrade a model after deployment.
     """
     image = image.convert("RGB").resize(config.IMG_SIZE, Image.BILINEAR)
     array = np.asarray(image, dtype="float32")     # 0-255, exactly as during training
