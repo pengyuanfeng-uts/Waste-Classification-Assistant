@@ -66,9 +66,6 @@ def read_upload() -> tuple[Image.Image | None, str | None]:
 def index():
     """Serve the page.
 
-    It is deliberately *not* rendered on the server: the browser reads /healthz and
-    posts to /api/predict itself. That keeps this file to HTTP concerns only and means
-    the HTML never has to mirror the JSON the API returns.
     """
     return render_template("index.html")
 
@@ -104,7 +101,7 @@ def healthz():
 
 @app.errorhandler(413)
 def too_large(_error):
-    """The only POST route accepts uploads, so this can answer in JSON as well."""
+
     limit_mb = MAX_UPLOAD_BYTES // (1024 * 1024)
     return jsonify({"ok": False, "error": f"That file is larger than the {limit_mb} MB limit."}), 413
 
