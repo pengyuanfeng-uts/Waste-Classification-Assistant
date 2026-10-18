@@ -5,15 +5,6 @@ Week 1 - step 1: fetch the TrashNet dataset (Yang & Thung, 2016).
 Downloads ``dataset-resized.zip`` (~41 MB) with HTTP range resume, verifies the
 archive, extracts it, then reports the per-class image counts.
 
-Why resume matters: the file lives on GitHub, which from some networks is slow
-and occasionally drops the connection. The downloader keeps whatever it already
-received and continues from that byte offset instead of starting over.
-
-Usage
------
-    python download_dataset.py            # download (skips if already present)
-    python download_dataset.py --verify   # only re-check an existing dataset
-    python download_dataset.py --force    # re-download from scratch
 """
 
 from __future__ import annotations
