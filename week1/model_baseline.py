@@ -7,7 +7,7 @@ convolutional base completely frozen and train only a small classification head.
 This validates that the whole pipeline learns something before any expensive
 fine-tuning is attempted (that is Week 2).
 
-Architecture (matches the plan sent to the tutor):
+Architecture:
 
     image (150x150x3, 0..255)
       -> Rescaling(1/127.5, -1)      # == mobilenet_v2.preprocess_input
