@@ -12,12 +12,6 @@ needs into ``outputs/``:
     split.json                    the exact train/val/test split (shared with Week 3)
     model_summary.txt             architecture + parameter counts
     training_log.csv              raw Keras CSV log
-
-Usage
------
-    python train_baseline.py                 # full Week 1 run (10 epochs)
-    python train_baseline.py --epochs 5
-    python train_baseline.py --smoke         # ~30 s sanity check, 1 epoch, 8 imgs/class
 """
 
 from __future__ import annotations
