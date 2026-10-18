@@ -17,28 +17,6 @@ Artefacts written to ``outputs/``:
     classification_report_<split>.txt   sklearn text report
     confusion_matrix_<split>.png        counts + normalised heat maps
     misclassified_<split>.png           grid of wrong predictions
-    week1_report.md                     ready-to-paste summary
-
-Usage
------
-    python evaluate.py                       # evaluate the saved baseline
-    python evaluate.py --split test
-    python evaluate.py --model outputs/baseline_model.keras
-
-References (APA 7)
-------------------
-Hunter, J. D. (2007). Matplotlib: A 2D graphics environment. Computing in
-    Science & Engineering, 9(3), 90-95. https://doi.org/10.1109/MCSE.2007.55
-    -> every figure written by this module.
-Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel,
-    O., ... Duchesnay, E. (2011). Scikit-learn: Machine learning in Python.
-    Journal of Machine Learning Research, 12, 2825-2830.
-    -> confusion_matrix, classification_report, precision/recall/F1 and
-       balanced accuracy; the choice of macro-F1 over raw accuracy is
-       recommended there for imbalanced targets.
-Yang, M., & Thung, G. (2016). Classification of trash for recyclability
-    status (CS229 Project Report). Stanford University.
-    -> the baseline numbers this evaluation is compared against.
 """
 
 from __future__ import annotations
