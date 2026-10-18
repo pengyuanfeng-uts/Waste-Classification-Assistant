@@ -6,33 +6,6 @@ Builds a reproducible, stratified 70/15/15 train/validation/test split from the
 TrashNet folder structure and wraps each split in an efficient ``tf.data``
 pipeline (parallel decode, shuffling, prefetching).
 
-Design notes
-------------
-* **Why a file-list split instead of `image_dataset_from_directory(validation_split=...)`?**
-  That helper only produces two subsets. A genuine *held-out test set* is needed
-  for the Week 3 final evaluation, and it must be identical across weeks, so the
-  split is computed once and persisted to ``outputs/split.json``.
-* **Stratified**: TrashNet is imbalanced (trash has ~137 images vs. paper's ~594).
-  Splitting per class guarantees every split sees every class in the right ratio.
-* **Images stay in 0..255.** Normalisation to the MobileNetV2 range happens inside
-  the model (``layers.Rescaling(1/127.5, offset=-1)``), which is numerically
-  identical to ``keras.applications.mobilenet_v2.preprocess_input`` but is saved
-  with the model, so Week 3 inference only ever has to feed raw pixels.
-
-References (APA 7)
-------------------
-Abadi, M., Barham, P., Chen, J., Chen, Z., Davis, A., Dean, J., ... Zheng, X.
-    (2016). TensorFlow: A system for large-scale machine learning. In
-    Proceedings of the 12th USENIX Symposium on OSDI '16 (pp. 265-283).
-    USENIX Association.
-    -> the execution engine underneath the tf.data pipeline built here.
-Thung, G. (2016). TrashNet [Data set]. GitHub.
-    https://github.com/garythung/trashnet
-    -> the exact folder layout this module scans and the 2 527 image count.
-Yang, M., & Thung, G. (2016). Classification of trash for recyclability
-    status (CS229 Project Report). Stanford University.
-    -> defines the 6-class label scheme (cardboard, glass, metal, paper,
-       plastic, trash) and documents the class imbalance handled here.
 """
 
 from __future__ import annotations
